@@ -1,0 +1,340 @@
+---
+import { Image } from "astro:assets";
+import portadaImg from "../assets/imagenes/portada.jpg";
+---
+
+<section class="hero" id="inicio">
+  <div class="hero-background">
+    <Image
+      src={portadaImg}
+      alt="Construcción Steel Framing - Tiempo Construcciones"
+      class="hero-bg-image"
+      loading="eager"
+      quality={90}
+    />
+  </div>
+  <div class="hero-overlay"></div>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-content">
+        <a href="#inicio" class="logo-link">
+          <img src="/logo.png" alt="Tiempo Construcciones" class="logo" />
+        </a>
+
+        <button class="menu-toggle" aria-label="Abrir menú" id="menuToggle">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    const nav = document.querySelector(".nav");
+
+    // Toggle menú móvil
+    menuToggle?.addEventListener("click", () => {
+      navMenu?.classList.toggle("active");
+    });
+
+    // Cerrar menú al hacer click en un link
+    const navLinks = navMenu?.querySelectorAll("a");
+    navLinks?.forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu?.classList.remove("active");
+      });
+    });
+
+    // achicar header
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 100) {
+        nav?.classList.add("scrolled");
+      } else {
+        nav?.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-text">
+        <h1>Construcción con Steel Framing</h1>
+        <p class="hero-subtitle">
+          Construimos viviendas confortables, cálidas y de calidad superior en
+          menor tiempo que la construcción tradicional.
+        </p>
+        <div class="hero-cta">
+          <a href="#contacto" class="btn btn-primary">Solicitar presupuesto</a>
+          <a href="#preguntas" class="btn btn-secondary">Conocer más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+    z-index: 1;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .nav.scrolled {
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    transition: padding 0.3s ease;
+  }
+
+  .nav.scrolled .nav-content {
+    padding: 0.5rem 0;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo {
+    height: 70px;
+    width: auto;
+    transition: all 0.3s ease;
+  }
+
+  .nav.scrolled .logo {
+    height: 50px;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    color: var(--color-text-light);
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-menu a:hover {
+    color: var(--color-primary);
+  }
+
+  .hero-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-text {
+    max-width: 700px;
+    padding: var(--space-xl) 0;
+  }
+
+  .hero-text h1 {
+    margin-bottom: var(--space-md);
+    color: white;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: #234d23;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(44, 95, 45, 0.4);
+  }
+
+  .btn-secondary {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--color-primary);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background-color: white;
+    border-color: white;
+    transform: translateY(-2px);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: var(--space-md);
+      gap: 0;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-menu li {
+      width: 100%;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-menu a {
+      display: block;
+      padding: var(--space-md);
+      font-size: 1rem;
+    }
+
+    .hero-text {
+      text-align: center;
+      padding: var(--space-lg) 0;
+    }
+
+    .hero-cta {
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .hero-bg-image {
+      object-position: 30% center;
+    }
+  }
+</style>

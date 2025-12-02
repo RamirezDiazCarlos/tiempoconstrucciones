@@ -1,0 +1,462 @@
+---
+import { Image } from 'astro:assets';
+import llaveEnmanoImg from '../assets/imagenes/llaveenmano.jpg';
+import obraGrisImg from '../assets/imagenes/obragris.jpg';
+---
+
+<section class="servicios section section-alt" id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <h2>Nuestros Servicios</h2>
+      <p class="section-description">
+        Ofrecemos soluciones completas adaptadas a tus necesidades
+      </p>
+    </div>
+
+    <div class="servicios-grid">
+      <!-- Llave en Mano -->
+      <article class="servicio-card">
+        <div class="servicio-header">
+          <Image
+            src={llaveEnmanoImg}
+            alt="Servicio Llave en Mano"
+            class="servicio-image"
+            loading="lazy"
+            width={800}
+            height={300}
+            quality={85}
+          />
+          <div class="servicio-overlay">
+            <h3>Llave en Mano</h3>
+            <p class="servicio-tagline">Solución completa lista para habitar</p>
+          </div>
+        </div>
+
+        <div class="servicio-content">
+          <p class="servicio-intro">
+            Construcción completa con todos los detalles incluidos, desde la estructura hasta las terminaciones finales.
+          </p>
+
+          <div class="servicio-highlights">
+            <div class="highlight">
+              <span class="highlight-icon">🏗️</span>
+              <span>Estructura completa</span>
+            </div>
+            <div class="highlight">
+              <span class="highlight-icon">🎨</span>
+              <span>Terminaciones</span>
+            </div>
+            <div class="highlight">
+              <span class="highlight-icon">⚡</span>
+              <span>Instalaciones</span>
+            </div>
+            <div class="highlight">
+              <span class="highlight-icon">🚿</span>
+              <span>Sanitarios</span>
+            </div>
+          </div>
+
+          <details class="accordion">
+            <summary>Ver especificaciones técnicas completas</summary>
+            <div class="accordion-content">
+              <div class="spec-category">
+                <h4>Estructura</h4>
+                <ul>
+                  <li>Platea de hormigón 12 cm con malla electrosoldada</li>
+                  <li>Tabiques de acero galvanizado IRAM certificados</li>
+                  <li>Cubierta con chapa galvanizada y aislación</li>
+                  <li>Tabiques interiores con Durlock y lana de vidrio</li>
+                </ul>
+              </div>
+
+              <div class="spec-category">
+                <h4>Terminaciones</h4>
+                <ul>
+                  <li>Pisos cerámicos San Lorenzo antideslizante</li>
+                  <li>Aberturas línea Módena</li>
+                  <li>Pintura interior y exterior completa</li>
+                  <li>Cielo raso con Durlock y aislación</li>
+                </ul>
+              </div>
+
+              <div class="spec-category">
+                <h4>Instalaciones</h4>
+                <ul>
+                  <li>Agua fría y caliente con tanque 600 lts</li>
+                  <li>Gas con termotanque, cocina y calefactor</li>
+                  <li>Eléctrica completa con tablero y térmicas</li>
+                  <li>Sanitaria con cámaras de inspección</li>
+                </ul>
+              </div>
+
+              <div class="spec-category">
+                <h4>Equipamiento</h4>
+                <ul>
+                  <li>Baño: Ferrum Andina con grifería FV</li>
+                  <li>Cocina: Mesada y muebles completos</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="accordion">
+            <summary>¿Qué no está incluido?</summary>
+            <div class="accordion-content">
+              <ul class="exclusions-list">
+                <li>Flete de materiales</li>
+                <li>Alquiler de obrador y equipamiento</li>
+                <li>Honorarios profesionales</li>
+                <li>Tasas municipales</li>
+                <li>Conexión de servicios</li>
+                <li>Pilar de luz y cerco perimetral</li>
+              </ul>
+            </div>
+          </details>
+
+          <a href="#contacto" class="btn-servicio">Solicitar presupuesto</a>
+        </div>
+      </article>
+
+      <!-- Obra Gris -->
+      <article class="servicio-card">
+        <div class="servicio-header">
+          <Image
+            src={obraGrisImg}
+            alt="Servicio Obra Gris"
+            class="servicio-image"
+            loading="lazy"
+            width={800}
+            height={300}
+            quality={85}
+          />
+          <div class="servicio-overlay">
+            <h3>Obra Gris</h3>
+            <p class="servicio-tagline">Estructura base para personalizar</p>
+          </div>
+        </div>
+
+        <div class="servicio-content">
+          <p class="servicio-intro">
+            Construcción de la estructura principal con instalaciones básicas. Ideal para quienes desean agregar sus propias terminaciones.
+          </p>
+
+          <div class="servicio-highlights">
+            <div class="highlight">
+              <span class="highlight-icon">🏗️</span>
+              <span>Estructura completa</span>
+            </div>
+            <div class="highlight">
+              <span class="highlight-icon">⚡</span>
+              <span>Instalaciones básicas</span>
+            </div>
+            <div class="highlight">
+              <span class="highlight-icon">💡</span>
+              <span>Personalizable</span>
+            </div>
+          </div>
+
+          <div class="info-badge">
+            <strong>Nota:</strong> No incluye pisos, aberturas, pinturas, sanitarios ni terminaciones.
+          </div>
+
+          <details class="accordion">
+            <summary>Ver especificaciones técnicas completas</summary>
+            <div class="accordion-content">
+              <div class="spec-category">
+                <h4>Estructura</h4>
+                <ul>
+                  <li>Platea de hormigón 12 cm con malla electrosoldada</li>
+                  <li>Tabiques exteriores acero galvanizado IRAM</li>
+                  <li>Tabiques interiores con Durlock y lana de vidrio</li>
+                  <li>Cubierta con chapa galvanizada y aislación</li>
+                  <li>Cielo raso con perfilería y placas</li>
+                </ul>
+              </div>
+
+              <div class="spec-category">
+                <h4>Instalaciones</h4>
+                <ul>
+                  <li>Agua fría y caliente con tanque 600 lts</li>
+                  <li>Gas hasta casilla (3 bocas interiores)</li>
+                  <li>Eléctrica con tablero y dos térmicas</li>
+                  <li>Bocas para teléfono y TV</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <a href="#contacto" class="btn-servicio">Solicitar presupuesto</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .servicios {
+    background-color: var(--color-surface);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .servicio-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .servicio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .servicio-header {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+  }
+
+  .servicio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .servicio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-lg);
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.3));
+  }
+
+  .servicio-overlay h3 {
+    color: white;
+    margin: 0 0 var(--space-xs) 0;
+    font-size: 1.75rem;
+  }
+
+  .servicio-tagline {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .servicio-content {
+    padding: var(--space-lg);
+  }
+
+  .servicio-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text);
+  }
+
+  .servicio-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-sm);
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    gap: var(--space-xs);
+  }
+
+  .highlight-icon {
+    font-size: 1.5rem;
+  }
+
+  .highlight span:last-child {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .info-badge {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-lg);
+    font-size: 0.9rem;
+  }
+
+  .info-badge strong {
+    color: #856404;
+  }
+
+  /* Acordeones */
+  .accordion {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    overflow: hidden;
+  }
+
+  .accordion summary {
+    padding: var(--space-md);
+    background: var(--color-surface);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-primary);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s ease;
+  }
+
+  .accordion summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.2s ease;
+  }
+
+  .accordion[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .accordion summary:hover {
+    background: var(--color-border);
+  }
+
+  .accordion-content {
+    padding: var(--space-md);
+    background: white;
+  }
+
+  .spec-category {
+    margin-bottom: var(--space-md);
+  }
+
+  .spec-category:last-child {
+    margin-bottom: 0;
+  }
+
+  .spec-category h4 {
+    color: var(--color-accent);
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--color-surface);
+  }
+
+  .spec-category ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .spec-category li {
+    padding: var(--space-xs) 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: var(--color-text-light);
+  }
+
+  .spec-category li::before {
+    content: "•";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .exclusions-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xs);
+  }
+
+  .exclusions-list li {
+    padding: var(--space-xs) 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+
+  .exclusions-list li::before {
+    content: "−";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--color-text-light);
+  }
+
+  .btn-servicio {
+    display: block;
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--color-accent);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    margin-top: var(--space-lg);
+    transition: all 0.2s ease;
+  }
+
+  .btn-servicio:hover {
+    background: #234d23;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (max-width: 768px) {
+    .servicios-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .servicio-header {
+      height: 220px;
+    }
+
+    .servicio-content {
+      padding: var(--space-md);
+    }
+
+    .servicio-highlights {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .exclusions-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

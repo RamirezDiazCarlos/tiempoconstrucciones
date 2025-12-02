@@ -1,0 +1,134 @@
+---
+import { Image } from 'astro:assets';
+import steelImg from '../assets/imagenes/steel.jpg';
+import rapidezImg from '../assets/imagenes/rapidez.webp';
+import costoImg from '../assets/imagenes/costo2.webp';
+
+const faqs = [
+  {
+    title: "¿Qué es Steel Framing?",
+    description: "Steel Framing es una nueva manera de construir. La estructura se compone de perfiles de acero galvanizado, sobre los que se aplica una placa cementicia como revestimiento exterior, y una placa de yeso como interior. En medio, se aplica lana de vidrio como aislante para el frío, el calor y el sonido, placa de madera para rigidizar la estructura y una barrera de vapor y otra de agua y viento.",
+    image: steelImg
+  },
+  {
+    title: "¿Es más rápido?",
+    description: "Steel Framing te permite construir en menor tiempo que la construcción tradicional de ladrillos agilizando los tiempos de ejecución de obra. INCOSE calcula que el Steel puede realizarse el 60% más rápido que la construcción tradicional.",
+    image: rapidezImg
+  },
+  {
+    title: "¿Es más económico?",
+    description: "Se reducen considerablemente los costos en mano de obra, por el menor tiempo empleado y en materiales. La perfilería puede adquirirse en la medida adecuada al proyecto, y demás materiales que pueden calcularse con exactitud.",
+    image: costoImg
+  }
+];
+---
+
+<section class="faq section" id="preguntas">
+  <div class="container">
+    <div class="section-header">
+      <h2>Preguntas Frecuentes</h2>
+      <p class="section-description">
+        Conoce más sobre el sistema de construcción Steel Framing
+      </p>
+    </div>
+
+    <div class="faq-grid">
+      {faqs.map((faq) => (
+        <article class="faq-card">
+          <div class="faq-image">
+            <Image
+              src={faq.image}
+              alt={faq.title}
+              loading="lazy"
+              width={300}
+              height={300}
+              quality={85}
+            />
+          </div>
+          <div class="faq-content">
+            <h3>{faq.title}</h3>
+            <p>{faq.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    background-color: var(--color-background);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .faq-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-lg);
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .faq-image {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-surface);
+  }
+
+  .faq-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .faq-content {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .faq-content h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+
+  .faq-content p {
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .faq-card {
+      grid-template-columns: 1fr;
+    }
+
+    .faq-image {
+      height: 200px;
+    }
+  }
+</style>
