@@ -25,7 +25,7 @@ const faqs = [
 
 <section class="faq section" id="preguntas">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header animate-on-scroll">
       <h2>Preguntas Frecuentes</h2>
       <p class="section-description">
         Conoce más sobre el sistema de construcción Steel Framing
@@ -34,7 +34,7 @@ const faqs = [
 
     <div class="faq-grid">
       {faqs.map((faq) => (
-        <article class="faq-card">
+        <article class="faq-card animate-on-scroll">
           <div class="faq-image">
             <Image
               src={faq.image}
@@ -58,18 +58,6 @@ const faqs = [
 <style>
   .faq {
     background-color: var(--color-background);
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-xl);
-  }
-
-  .section-description {
-    font-size: 1.125rem;
-    color: var(--color-text-light);
-    max-width: 600px;
-    margin: 0 auto;
   }
 
   .faq-grid {

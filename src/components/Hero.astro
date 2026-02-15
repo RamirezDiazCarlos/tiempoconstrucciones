@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import portadaImg from "../assets/imagenes/portada.jpg";
+import logoImg from "../assets/imagenes/logo.png";
 ---
 
 <section class="hero" id="inicio">
@@ -19,10 +20,10 @@ import portadaImg from "../assets/imagenes/portada.jpg";
     <div class="container">
       <div class="nav-content">
         <a href="#inicio" class="logo-link">
-          <img src="/logo.png" alt="Tiempo Construcciones" class="logo" />
+          <Image src={logoImg} alt="Tiempo Construcciones" class="logo" height={70} quality={90} />
         </a>
 
-        <button class="menu-toggle" aria-label="Abrir menú" id="menuToggle">
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" id="menuToggle">
           <svg
             width="24"
             height="24"
@@ -30,6 +31,7 @@ import portadaImg from "../assets/imagenes/portada.jpg";
             fill="none"
             stroke="currentColor"
             stroke-width="2"
+            aria-hidden="true"
           >
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -55,6 +57,9 @@ import portadaImg from "../assets/imagenes/portada.jpg";
     // Toggle menú móvil
     menuToggle?.addEventListener("click", () => {
       navMenu?.classList.toggle("active");
+      const isOpen = navMenu?.classList.contains("active");
+      menuToggle?.setAttribute("aria-expanded", String(isOpen));
+      menuToggle?.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
     });
 
     // Cerrar menú al hacer click en un link
@@ -67,7 +72,7 @@ import portadaImg from "../assets/imagenes/portada.jpg";
 
     // achicar header
     window.addEventListener("scroll", () => {
-      const currentScroll = window.pageYOffset;
+      const currentScroll = window.scrollY;
 
       if (currentScroll > 100) {
         nav?.classList.add("scrolled");
@@ -195,7 +200,7 @@ import portadaImg from "../assets/imagenes/portada.jpg";
   }
 
   .nav-menu a:hover {
-    color: var(--color-primary);
+    color: var(--color-accent);
   }
 
   .hero-content {
@@ -242,14 +247,14 @@ import portadaImg from "../assets/imagenes/portada.jpg";
   }
 
   .btn-primary {
-    background-color: var(--color-accent);
+    background-color: var(--color-cta);
     color: white;
   }
 
   .btn-primary:hover {
-    background-color: #234d23;
+    background-color: var(--color-cta-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(44, 95, 45, 0.4);
+    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.4);
   }
 
   .btn-secondary {
