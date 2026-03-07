@@ -16,6 +16,7 @@ const siteUrl = 'https://tiempoconstrucciones.com';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={siteUrl} />
     <meta name="keywords" content="Steel Framing, construcción en seco, casas, refacciones, construcción rápida, San Lorenzo, Santa Fe" />
     <meta name="author" content="Tiempo Construcciones" />
 
@@ -24,10 +25,22 @@ const siteUrl = 'https://tiempoconstrucciones.com';
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
-    <meta property="og:image" content={`${siteUrl}/logo.png`} />
+    <meta property="og:image" content={`${siteUrl}/OG.webp`} />
+    <meta property="og:image:alt" content="Tiempo Construcciones - Steel Framing en San Lorenzo, Santa Fe" />
     <meta property="og:site_name" content="Tiempo Construcciones" />
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/OG.webp`} />
+    <meta name="twitter:image:alt" content="Tiempo Construcciones - Steel Framing en San Lorenzo, Santa Fe" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,6 +49,34 @@ const siteUrl = 'https://tiempoconstrucciones.com';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
+
+    <!-- JSON-LD LocalBusiness -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Tiempo Construcciones",
+        "description": "Empresa de construcción con método Steel Framing en San Lorenzo, Santa Fe. Construimos viviendas confortables, cálidas y de calidad superior en menor tiempo que la construcción tradicional.",
+        "url": "https://tiempoconstrucciones.com",
+        "telephone": "+543476641851",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San Lorenzo",
+          "addressRegion": "Santa Fe",
+          "addressCountry": "AR"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "San Lorenzo, Santa Fe, Argentina"
+        },
+        "serviceType": ["Steel Framing", "Construcción en seco", "Construcción llave en mano", "Obra gris"],
+        "image": "https://tiempoconstrucciones.com/logo.png",
+        "sameAs": [
+          "https://www.instagram.com/tiempoconstrucciones",
+          "https://www.facebook.com/TiempoConstrucciones"
+        ]
+      }
+    </script>
   </head>
   <body>
     <slot />

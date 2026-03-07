@@ -1,0 +1,160 @@
+---
+import { Image } from 'astro:assets';
+import acabadoExterior from '../assets/imagenes/galeria/acabado-exterior.webp';
+import aislamiento from '../assets/imagenes/galeria/aislamiento.webp';
+import electricidad from '../assets/imagenes/galeria/electricidad.webp';
+import estructura from '../assets/imagenes/galeria/estructura.webp';
+import estructuraInterior from '../assets/imagenes/galeria/estructura-interior.webp';
+import estructuraRigida from '../assets/imagenes/galeria/estructura-rigida.webp';
+import interior from '../assets/imagenes/galeria/interior.webp';
+---
+
+<section class="galeria section" id="galeria">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <h2>Nuestros Trabajos</h2>
+      <p class="section-description">Cada proyecto refleja nuestro compromiso con la calidad y la precisión</p>
+    </div>
+
+    <div class="bento-grid animate-on-scroll">
+      <div class="bento-item item-1">
+        <Image src={acabadoExterior} alt="Acabado exterior Steel Framing" loading="lazy" quality={85} />
+        <div class="bento-label">Acabado Exterior</div>
+      </div>
+
+      <div class="bento-item item-2">
+        <Image src={aislamiento} alt="Aislamiento térmico" loading="lazy" quality={85} />
+        <div class="bento-label">Aislamiento Térmico</div>
+      </div>
+
+      <div class="bento-item item-3 portrait">
+        <Image src={estructura} alt="Estructura Steel Framing" loading="lazy" quality={85} />
+        <div class="bento-label">Estructura</div>
+      </div>
+
+      <div class="bento-item item-4">
+        <Image src={electricidad} alt="Instalación eléctrica" loading="lazy" quality={85} />
+        <div class="bento-label">Instalación Eléctrica</div>
+      </div>
+
+      <div class="bento-item item-5">
+        <Image src={estructuraInterior} alt="Estructura interior" loading="lazy" quality={85} />
+        <div class="bento-label">Estructura Interior</div>
+      </div>
+
+      <div class="bento-item item-6 wide">
+        <Image src={interior} alt="Terminación interior" loading="lazy" quality={85} />
+        <div class="bento-label">Terminación Interior</div>
+      </div>
+
+      <div class="bento-item item-7">
+        <Image src={estructuraRigida} alt="Estructura rígida" loading="lazy" quality={85} />
+        <div class="bento-label">Estructura Rígida</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .galeria {
+    background-color: var(--color-bg);
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 260px 260px 260px;
+    gap: 0.75rem;
+  }
+
+  .bento-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+  }
+
+  .bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+
+  .bento-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .bento-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .bento-item:hover .bento-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Layout bento */
+  .item-3.portrait {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+
+  .item-6.wide {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+
+  /* Mobile: columna simple */
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+
+    .item-3.portrait {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    .item-6.wide {
+      grid-column: 1 / 3;
+      grid-row: auto;
+    }
+
+    .bento-item {
+      aspect-ratio: 4 / 3;
+    }
+
+    .item-3.portrait {
+      aspect-ratio: 3 / 4;
+    }
+
+    .bento-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .item-6.wide {
+      grid-column: auto;
+    }
+  }
+</style>
