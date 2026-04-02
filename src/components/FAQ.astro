@@ -73,7 +73,19 @@ const faqs = [
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid var(--color-border);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-card:nth-child(even) {
+    grid-template-columns: 1fr 300px;
+  }
+
+  .faq-card:nth-child(even) .faq-image {
+    order: 2;
+  }
+
+  .faq-card:nth-child(even) .faq-content {
+    order: 1;
   }
 
   .faq-card:hover {
@@ -112,7 +124,12 @@ const faqs = [
 
   @media (max-width: 768px) {
     .faq-card {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
+    }
+
+    .faq-card:nth-child(even) .faq-image,
+    .faq-card:nth-child(even) .faq-content {
+      order: unset;
     }
 
     .faq-image {

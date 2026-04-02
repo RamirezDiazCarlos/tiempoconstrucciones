@@ -7,10 +7,12 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(m
 <section class="cta-banner">
   <div class="container">
     <div class="cta-content">
-      <h2 class="cta-title">¿Listo para construir tu casa en menos tiempo?</h2>
-      <p class="cta-description">
-        Pedí tu presupuesto sin compromiso y empezá a planificar tu proyecto hoy.
-      </p>
+      <div class="cta-text">
+        <h2 class="cta-title">¿Listo para construir tu casa en menos tiempo?</h2>
+        <p class="cta-description">
+          Pedí tu presupuesto sin compromiso y empezá a planificar tu proyecto hoy.
+        </p>
+      </div>
       <div class="cta-actions">
         <a
           href={whatsappUrl}
@@ -49,9 +51,16 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(m
   }
 
   .cta-content {
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-lg);
+    align-items: center;
     position: relative;
     z-index: 1;
+  }
+
+  .cta-text {
+    text-align: left;
   }
 
   .cta-title {
@@ -63,15 +72,16 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(m
   .cta-description {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.125rem;
-    max-width: 550px;
-    margin: 0 auto var(--space-lg);
+    max-width: 500px;
+    margin: 0;
   }
 
   .cta-actions {
     display: flex;
+    flex-direction: column;
     gap: var(--space-sm);
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: stretch;
+    flex-shrink: 0;
   }
 
   .cta-btn {
@@ -94,7 +104,10 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(m
     background: var(--color-surface);
     color: var(--color-accent);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-btn-whatsapp:active {
+    transform: scale(0.98);
   }
 
   .cta-btn-secondary {
@@ -110,16 +123,28 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(m
     transform: translateY(-2px);
   }
 
+  .cta-btn-secondary:active {
+    transform: scale(0.98);
+  }
+
   @media (max-width: 768px) {
+    .cta-content {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-text {
+      text-align: left;
+    }
+
     .cta-actions {
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
 
     .cta-btn {
-      width: 100%;
+      flex: 1;
       justify-content: center;
-      max-width: 320px;
+      min-width: 200px;
     }
   }
 </style>
